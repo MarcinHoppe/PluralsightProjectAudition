@@ -1,0 +1,13 @@
+{
+  "name": "encrypt",
+  "version": "1.0.0",
+  "description": "Encrypt sensitive data in Node.js",
+  "author": "Marcin Hoppe <marcin.hoppe@gmail.com>",
+  "main": "index.js",
+  "scripts": {
+  },
+  "dependencies": {
+    "minimist": "^1.2.5"
+  },
+  "devDependencies": {}
+}
