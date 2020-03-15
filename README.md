@@ -5,5 +5,5 @@ In this project you will encrypt sensitive data in Node.js. You will use the `cr
 ## Run
 
 ```bash
-$ node index.js --plaintext=foobar --password=secret
+node index.js --plaintext=foobar --password=secret
 ```
