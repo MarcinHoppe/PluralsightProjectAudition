@@ -13,7 +13,7 @@ npm install
 The best way to verify if everything is set up correctly is to run the tests. You can run the tests using the following command:
 
 ```bash
-npm run test
+npm test
 ```
 
 All tests should be failing now. This is expected.
