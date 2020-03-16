@@ -5,9 +5,14 @@
   "author": "Marcin Hoppe <marcin.hoppe@gmail.com>",
   "main": "index.js",
   "scripts": {
+    "test": "./node_modules/mocha/bin/mocha"
   },
   "dependencies": {
     "minimist": "^1.2.5"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "esprima": "^4.0.1",
+    "mocha": "^7.1.0"
+  }
 }

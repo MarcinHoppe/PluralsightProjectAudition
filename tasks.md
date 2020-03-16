@@ -38,11 +38,11 @@ Device encryption key from the password using the scrypt algorithm by calling th
 
 ## Creating the cipher object
 
-Create the AES-GCM encryption object by calling `crypto.createCipheriv` function and passing `aes-128-gcm`, `key`, and `iv` as arguments. Assign the return value to `cipher` constant.
+Create the AES-GCM encryption object by calling `crypto.createCipheriv` function and passing `'aes-128-gcm'`, `key`, and `iv` as arguments. Assign the return value to `cipher` constant.
 
 ## Encrypting data
 
-Declare a variable `ciphertext` to hold the hex encoded encrypted data. Input data in the `plaintext` variable is encoded using UTF-8. To encrypt the data call `cipher.update` function passing `plaintext`, `utf-8`, and `hex` as arguments and assign the return value to the `ciphertext` variable. To finalize encryption call `cipher.final` with a single argument `hex`. Append the return value to the `ciphertext` variable using addition assignment operator (`+=`).
+Declare a variable `ciphertext` to hold the hex encoded encrypted data. Input data in the `plaintext` variable is encoded using UTF-8. To encrypt the data call `cipher.update` function passing `plaintext`, `'utf-8'`, and `'hex'` as arguments and assign the return value to the `ciphertext` variable. To finalize encryption call `cipher.final` with a single argument `hex`. Append the return value to the `ciphertext` variable using addition assignment operator (`+=`).
 
 ## Obtaining authentication tag
 
