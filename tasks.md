@@ -22,7 +22,7 @@ All tests should be failing now. This is expected.
 
 ## Importing the crypto module
 
-Open the `lib/encrypt.js` file and call the built in `require` function passing `crypto` as its only argument. Assign the return value to `crypto` constant.
+Open the `lib/encrypt.js` file. Declare a constant `crypto` and initialize it with a call to the built in `require` function. Pass the string `'crypto'` as its only argument.
 
 ## Exporting the encrypt function
 
@@ -30,23 +30,23 @@ Declare an empty function `encrypt` taking two parameters: `plaintext` and `pass
 
 ## Generating salt and initialization vector
 
-Generate a 16 byte random value by calling `crypto.randomBytes` function and passing `16` as its only argument. Assign the return value to `salt` constant. Generate a second 16 byte random value in the same way and assign it to `iv` constant.
+Declare two constants: `salt` and `iv`. Initialize each of them with a call to the `crypto.randomBytes` function. Pass the number `16` as its only argument.
 
 ## Deriving encryption key
 
-Device encryption key from the password using the scrypt algorithm by calling the `crypto.scryptSync` function and passing `password`, `salt`, and `16` as arguments. Assign the return value to `key` constant.
+Derive encryption key from the password using the `scrypt` algorithm. To do this, declare a constant `key` and initialize it with a call to the `crypto.scryptSync` function. Pass variables `password`, `salt`, and the number `16` as arguments.
 
 ## Creating the cipher object
 
-Create the AES-GCM encryption object by calling `crypto.createCipheriv` function and passing `'aes-128-gcm'`, `key`, and `iv` as arguments. Assign the return value to `cipher` constant.
+We will use a cipher object implementing the AES-GCM algorithm to encrypt the data. Declare a constant `cipher` and initialize it with a call to the `crypto.createCipheriv` function. Pass the string `'aes-128-gcm'`, followed by variables `key` and `iv` as arguments.
 
 ## Encrypting data
 
-Declare a variable `ciphertext` to hold the hex encoded encrypted data. Input data in the `plaintext` variable is encoded using UTF-8. To encrypt the data call `cipher.update` function passing `plaintext`, `'utf-8'`, and `'hex'` as arguments and assign the return value to the `ciphertext` variable. To finalize encryption call `cipher.final` with a single argument `hex`. Append the return value to the `ciphertext` variable using addition assignment operator (`+=`).
+Declare a variable `ciphertext` to hold the hex encoded encrypted data. Input data in the `plaintext` variable is encoded using UTF-8. Initialize the `ciphertext` variable with a call to the `cipher.update` function. Pass variable `plaintext`, followed by strings `'utf-8'` and `'hex'` as arguments. To finalize encryption, append the result of call to `cipher.final` with a single argument `'hex'` to the `ciphertext` variable using addition assignment operator (`+=`).
 
 ## Obtaining authentication tag
 
-AES-GCM is an authenticated encryption algorithm and the encryption process produces ciphertext and authentication tag. Retrieve the authentication tag by calling the `cipher.getAuthTag` function without any arguments and store the result in the `tag` constant.
+AES-GCM is an authenticated encryption algorithm and the encryption process produces ciphertext and authentication tag. Declare a constant `tag` and initialize it with a calling to the `cipher.getAuthTag` function without any arguments.
 
 ## Returning the encryption data
 

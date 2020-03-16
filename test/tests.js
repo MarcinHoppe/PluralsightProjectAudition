@@ -14,7 +14,7 @@ describe('Encrypt sensitive data', () => {
         const ast = esprima.parseModule(source);
 
         it('Should declare crypto constant', () => {
-            assert(ast.body.length >= 1, 'Have you added the code to the lib/encrypt.js file?');
+            assert(ast.body.length >= 1, 'Have you declared crypto constant?');
 
             assert(ast.body[0].type === 'VariableDeclaration', 'Have you declared crypto constant?');
             assert(ast.body[0].kind === 'const', 'Have you declared crypto constant?');
@@ -90,7 +90,7 @@ describe('Encrypt sensitive data', () => {
             assert(keyNode, 'Have you declared key constant?');
         });
 
-        it('Should call crypto.scryptSync to generate initialization vector', () => {
+        it('Should call crypto.scryptSync to derive encryption key', () => {
             assert(keyNode.init.type === 'CallExpression', 'Have you assigned return value of crypto.scryptSync to key?');
             assert(keyNode.init.callee.type === 'MemberExpression', 'Have you called crypto.scryptSync?');
             assert(keyNode.init.callee.object.name === 'crypto', 'Have you called crypto.scryptSync?');
@@ -114,7 +114,7 @@ describe('Encrypt sensitive data', () => {
             assert(cipherNode, 'Have you declared cipher constant?');
         });
 
-        it('Should call crypto.createCipheriv to generate initialization vector', () => {
+        it('Should call crypto.createCipheriv to create cipher object', () => {
             assert(cipherNode.init.type === 'CallExpression', 'Have you assigned return value of crypto.createCipheriv to key?');
             assert(cipherNode.init.callee.type === 'MemberExpression', 'Have you called crypto.createCipheriv?');
             assert(cipherNode.init.callee.object.name === 'crypto', 'Have you called crypto.createCipheriv?');
